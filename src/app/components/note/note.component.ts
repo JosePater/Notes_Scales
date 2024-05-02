@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './note.component.css',
 })
 export class NoteComponent {
+  notaEnNumero: number = 0; // C=Do corresponde a 0
   notaSeleccionada: string = 'C'; // Tonalidad seleccionada
-  numNota: string = '1';  // 1era de la tonalidad especificada
-  numCamp1: string = 'C';
+  // numNota: string = '1';  // 1era de la tonalidad especificada
+  // numCamp1: string = 'C';
 
   numNotasArray: string[] = ['1', '2', '3', '4', '5', '6', '7'];
 
@@ -66,18 +67,21 @@ export class NoteComponent {
   // Función para manejar el cambio de selección en el select
   onSelectChange(event: any) {
     this.notaSeleccionada = event.target.value;
-    this.calcularNota();
-  }
-
-  onSelectNumber(event: any) {
-    this.numNota = event.target.value;
-    this.calcularNota();
-  }
-
-  calcularNota() {
     const row = this.notasMusicales.indexOf(this.notaSeleccionada);
-    const col = this.numNotasArray.indexOf(this.numNota);
-    this.numCamp1 = this.todasLasTonalidades[row][col];
+    this.notaEnNumero = row;
+    
+    // this.calcularNota();
   }
+
+  // onSelectNumber(event: any) {
+  //   this.numNota = event.target.value;
+  //   // this.calcularNota();
+  // }
+
+  // calcularNota() {
+  //   const row = this.notasMusicales.indexOf(this.notaSeleccionada);
+  //   const col = this.numNotasArray.indexOf(this.numNota);
+  //   this.numCamp1 = this.todasLasTonalidades[row][col];
+  // }
 
 }

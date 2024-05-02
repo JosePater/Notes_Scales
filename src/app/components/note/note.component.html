@@ -6,16 +6,36 @@
         (change)="onSelectChange($event)"
         class="bg-gray-100 w-20 pl-0 pr-1 mr-1 font-bold text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option selected>Nota</option>
+    
         @for (nota of notasMusicales; track $index) {
-        <option value="{{ nota }}">{{ nota }}</option>
+        <option value="{{ nota }}" class="font-bold">{{ nota }}</option>
         }
       </select>
     </div>
   </div>
 
   <div class="w-full">
-    <input
+    <div class="container mx-auto">
+      <table class="w-full table-auto">
+        <thead>
+          <tr>
+            @for (num of numNotasArray; track $index) {
+            <th class="border px-4 py-2 bg-yellow-300">{{ num }}</th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            @for (nota of todasLasTonalidades[notaEnNumero]; track $index) {
+            <td class="border px-1 py-2 text-center bg-blue-400 font-bold">{{ nota }}</td>
+            }
+          </tr>
+          <!-- Puedes agregar más filas según sea necesario -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- <input
       type="text"
       placeholder="Frase de la estrofa"
       class="block w-full p-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -43,6 +63,6 @@
       type="text"
       [disabled]="true"
       class="{{ classInput.join(' ') }} block font-bold bg-blue-300"
-    />
+    /> -->
   </div>
 </section>
