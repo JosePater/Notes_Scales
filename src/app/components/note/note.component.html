@@ -1,0 +1,36 @@
+<section class="m-1">
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <div class="flex items-center content-center">
+      <select
+        [(ngModel)]="notaSeleccionada"
+        (change)="onSelectChange($event)"
+        class="bg-gray-100 w-20 pl-0 pr-1 mr-1 font-bold text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option selected>Nota</option>
+        @for (nota of notasMusicales; track $index) {
+        <option value="{{ nota }}">{{ nota }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <select
+      [(ngModel)]="numNota"
+      (change)="onSelectNumber($event)"
+      class="wpl-0 font-bold {{ classInput.join(' ') }}"
+    >
+      <option selected>Nota</option>
+      @for (num of numNotasArray; track $index) {
+      <option value="{{ num }}">{{ num }}</option>
+      }
+    </select>
+
+    <input
+      [(ngModel)]="numCamp1"
+      type="text"
+      [disabled]="true"
+      class="{{ classInput.join(' ') }} block"
+    />
+  </div>
+</section>
