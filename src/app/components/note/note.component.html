@@ -6,7 +6,6 @@
         (change)="onSelectChange($event)"
         class="bg-gray-100 w-20 pl-0 pr-1 mr-1 font-bold text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-    
         @for (nota of notasMusicales; track $index) {
         <option value="{{ nota }}" class="font-bold">{{ nota }}</option>
         }
@@ -27,13 +26,41 @@
         <tbody>
           <tr>
             @for (nota of todasLasTonalidades[notaEnNumero]; track $index) {
-            <td class="border px-1 py-2 text-center bg-blue-400 font-bold">{{ nota }}</td>
+            <td class="border px-1 py-2 text-center bg-blue-400 font-bold">
+              {{ nota }}
+            </td>
             }
           </tr>
           <!-- Puedes agregar más filas según sea necesario -->
         </tbody>
       </table>
     </div>
+
+    <table class="w-full mt-12">
+      <thead>
+        <tr class="text-gray-600">
+          <th class="border px-4 py-2">C</th>
+          <th class="border px-4 py-2">D</th>
+          <th class="border px-4 py-2">E</th>
+          <th class="border px-4 py-2">F</th>
+          <th class="border px-4 py-2">G</th>
+          <th class="border px-4 py-2">A</th>
+          <th class="border px-4 py-2">B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-gray-600">
+          <td class="border px-1 py-2 text-center">Do</td>
+          <td class="border px-1 py-2 text-center">Re</td>
+          <td class="border px-1 py-2 text-center">Mi</td>
+          <td class="border px-1 py-2 text-center">Fa</td>
+          <td class="border px-1 py-2 text-center">Sol</td>
+          <td class="border px-1 py-2 text-center">La</td>
+          <td class="border px-1 py-2 text-center">Si</td>
+        </tr>
+        <!-- Puedes agregar más filas según sea necesario -->
+      </tbody>
+    </table>
 
     <!-- <input
       type="text"
